@@ -18,7 +18,8 @@ const Transactions = () => {
           <tr>
             <td>
               <Image
-                src='/noavatar.png'
+                // src='/noavatapngr.'
+                src='/astronaut.png'
                 alt=''
                 width={40}
                 height={40}
@@ -37,7 +38,7 @@ const Transactions = () => {
           <tr>
             <td>
               <Image
-                src='/noavatar.png'
+                src='/astronaut.png'
                 alt=''
                 width={40}
                 height={40}
@@ -54,7 +55,7 @@ const Transactions = () => {
           <tr>
             <td>
               <Image
-                src='/noavatar.png'
+                src='/astronaut.png'
                 alt=''
                 width={40}
                 height={40}
@@ -73,7 +74,7 @@ const Transactions = () => {
           <tr>
             <td>
               <Image
-                src='/noavatar.png'
+                src='/astronaut.png'
                 alt=''
                 width={40}
                 height={40}

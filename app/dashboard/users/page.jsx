@@ -1,10 +1,14 @@
+import { fetchUser } from '@/app/lib/data';
 import Paginition from '@/app/ui/dashboard/paginition/paginition';
 import Search from '@/app/ui/dashboard/search/search';
 import styles from '@/app/ui/dashboard/users/users.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const UsersPage = () => {
+const UsersPage = async () => {
+  const users = await fetchUser();
+  console.log(users);
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>

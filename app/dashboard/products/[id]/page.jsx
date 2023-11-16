@@ -1,4 +1,4 @@
-//import styles from '@/app/ui/dashboard/products/singleProduct/singleProduct.module.css';
+import styles from '@/app/ui/dashboard/products/singleProduct/singleProducts.module.css';
 import Image from 'next/image';
 
 const SingleProductPage = () => {

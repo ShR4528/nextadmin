@@ -1,4 +1,19 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+    images: {
+        remotePatterns: [
 
-module.exports = nextConfig
+            {
+                protocol: "https",
+                hostname: "www.pexels.com",
+
+
+            },
+        ],
+    },
+};
+
+module.exports = nextConfig;
+
+
+//https://www.pexels.com/photo/young-couple-sitting-back-to-back-19045609/

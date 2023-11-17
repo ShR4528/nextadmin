@@ -3,7 +3,7 @@ import { connectToDB } from "./utils";
 
 
 export const fetchUser = async () => {
-
+    console.log(fetchUser);
     try {
         connectToDB();
         const user = await User.find();

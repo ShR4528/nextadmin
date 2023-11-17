@@ -5,8 +5,9 @@ import styles from '@/app/ui/dashboard/users/users.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const UsersPage = async () => {
-  const users = await fetchUser();
+const UsersPage = async ({ searchParamas }) => {
+  const q = searchParamas?.q || '';
+  const users = await fetchUser(q);
   console.log(users);
 
   var currentDate = new Date();

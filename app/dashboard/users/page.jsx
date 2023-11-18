@@ -1,5 +1,5 @@
 import { fetchUser } from '@/app/lib/data';
-import Paginition from '@/app/ui/dashboard/paginition/paginition';
+import Paginition from '@/app/ui/dashboard/pagination/pagination';
 import Search from '@/app/ui/dashboard/search/search';
 import styles from '@/app/ui/dashboard/users/users.module.css';
 import Image from 'next/image';
@@ -7,11 +7,8 @@ import Link from 'next/link';
 
 const UsersPage = async ({ searchParamas }) => {
   const q = searchParamas?.q || '';
-  const users = await fetchUser(q);
-  console.log(users);
-
-  var currentDate = new Date();
-  console.log(currentDate);
+  const page = searchParamas?.q || 1;
+  const { count, users } = await fetchUser(q, page);
 
   return (
     <div className={styles.container}>
@@ -68,7 +65,7 @@ const UsersPage = async ({ searchParamas }) => {
           ))}
         </tbody>
       </table>
-      <Paginition />
+      <Paginition count={count} />
     </div>
   );
 };

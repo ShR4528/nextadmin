@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema({
 );
 
 const productSchema = new mongoose.Schema({
-    username: {
+    title: {
         type: String,
         required: true,
         unique: true,
@@ -51,7 +51,6 @@ const productSchema = new mongoose.Schema({
     desc: {
         type: String,
         required: true,
-        unique: true,
     },
     price: {
         type: Number,
@@ -67,18 +66,13 @@ const productSchema = new mongoose.Schema({
         type: String,
     },
     color: {
-
-    },
-    phone: {
         type: String,
     },
-    address: {
+    size: {
         type: String,
-    }
+    },
 },
-    {
-        timestamps: true
-    },
+    { timestamps: true }
 );
 
 export const User = mongoose.models.User || mongoose.model('User', userSchema);

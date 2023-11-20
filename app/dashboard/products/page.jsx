@@ -7,6 +7,8 @@ import Pagination from '@/app/ui/dashboard/pagination/pagination';
 import { fetchProducts } from '@/app/lib/data';
 
 const ProductsPage = async ({ searchParamas }) => {
+  console.log(searchParamas);
+
   const q = searchParamas?.q || '';
   const page = searchParamas?.q || 1;
   const { count, products } = await fetchProducts(q, page);

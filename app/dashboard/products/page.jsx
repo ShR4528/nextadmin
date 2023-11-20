@@ -1,9 +1,7 @@
 import Search from '@/app/ui/dashboard/search/search';
 import Image from 'next/image';
 import Link from 'next/link';
-
 import styles from '@/app/ui/dashboard/products/products.module.css';
-// import styles from '@/app/ui/dashboard/products/singleProduct/singleProduct.module.css';
 
 import Pagination from '@/app/ui/dashboard/pagination/pagination';
 import { fetchProducts } from '@/app/lib/data';

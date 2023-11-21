@@ -1,5 +1,5 @@
 import { deleteUser } from '@/app/lib/actions';
-import { fetchUser } from '@/app/lib/data';
+import { fetchUser, fetchUsers } from '@/app/lib/data';
 import Paginition from '@/app/ui/dashboard/pagination/pagination';
 import Search from '@/app/ui/dashboard/search/search';
 import styles from '@/app/ui/dashboard/users/users.module.css';
@@ -9,7 +9,7 @@ import Link from 'next/link';
 const UsersPage = async ({ searchParamas }) => {
   const q = searchParamas?.q || '';
   const page = searchParamas?.q || 1;
-  const { count, users } = await fetchUser(q, page);
+  const { count, users } = await fetchUsers(q, page);
 
   return (
     <div className={styles.container}>

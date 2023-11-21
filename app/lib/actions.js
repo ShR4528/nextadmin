@@ -3,13 +3,13 @@ import { revalidatePath } from "next/cache";
 import { connectToDB } from "./utils";
 import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
-import { Product } from "./models";
+import { Product, User } from "./models";
 
 
 
 export const addUser = async (formData) => {
 
-    const { username, email, password, phone, address, isAdmin, isActive } =
+    const { id, username, email, password, phone, address, isAdmin, isActive } =
         Object.fromEntries(formData);
 
     try {
@@ -75,12 +75,48 @@ export const deleteUser = async (formData) => {
     revalidatePath("/dashboard/products");
 };
 
+export const updateProduct = async (formData) => {
+    const { id, title, desc, price, stock, color, size } =
+        Object.fromEntries(formData);
+
+    try {
+        connectToDB();
+
+        const updateFields = {
+            title,
+            desc,
+            price,
+            stock,
+            color,
+            size,
+        };
+
+        Object.keys(updateFields).forEach(
+            (key) =>
+                (updateFields[key] === "" || undefined) && delete updateFields[key]
+        );
+
+        await Product.findByIdAndUpdate(id, updateFields);
+    } catch (err) {
+        console.log(err);
+        throw new Error("Failed to update product!");
+    }
+
+    revalidatePath("/dashboard/products");
+    redirect("/dashboard/products");
+};
+
 export const updateUser = async (formData) => {
     const { id, username, email, password, phone, address, isAdmin, isActive } =
         Object.fromEntries(formData);
 
     try {
-        connectToDB();
+        await connectToDB();
+
+        if (!id || typeof id !== 'string') {
+            console.error('Invalid user id. Received:', id);
+            throw new Error('Invalid user id');
+        }
 
         const updateFields = {
             username,
@@ -100,7 +136,7 @@ export const updateUser = async (formData) => {
         await User.findByIdAndUpdate(id, updateFields);
     } catch (err) {
         console.log(err);
-        throw new Error("Failed to update user!");
+        // throw new Error("Failed to update user!");
     }
 
     revalidatePath("/dashboard/users");

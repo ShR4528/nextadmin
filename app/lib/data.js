@@ -2,7 +2,7 @@ import { Product, User } from "./models";
 import { connectToDB } from "./utils";
 
 
-export const fetchUser = async (q, page) => {
+export const fetchUsers = async (q, page) => {
     const regex = new RegExp(q, 'i');
 
     const ITEM_PER_PAGE = 2;
@@ -18,7 +18,7 @@ export const fetchUser = async (q, page) => {
     }
 };
 
-export const fetchUses = async (id) => {
+export const fetchUser = async (id) => {
     console.log(id);
     try {
         connectToDB();

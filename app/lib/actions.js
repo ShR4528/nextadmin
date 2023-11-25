@@ -158,14 +158,31 @@ export const deleteProduct = async (formData) => {
     revalidatePath("/dashboard/products");
 };
 
+// export const authenticate = async (formData) => {
+//     console.log("Start authentication");
+//     console.log("FormData:", formData);
+//     const { username, password } = Object.fromEntries(formData);
+
+//     console.log("FormData:", formData);
+
+// };
 
 
-export const authenticate = async (prevState, formData) => {
+
+
+
+export const authenticate = async (formData) => {
+
+    console.log("Start authentication");
+    console.log("FormData:", formData);
     const { username, password } = Object.fromEntries(formData);
+    console.log("Username:", username, "Password:", password);
+
 
     try {
         await signIn("credentials", { username, password });
     } catch (err) {
-        return "Wrong Credentials!";
+        return "Wrong Credentials88998980909-0!";
     }
 };
+

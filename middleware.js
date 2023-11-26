@@ -1,23 +1,23 @@
-// import NextAuth from "next-auth";
-// import { authConfig } from "./app/authconfig";
-
-// export default NextAuth(authConfig).auth;
-
-// export const config = {
-//     matcher: ['/((?!api|static|.*\\..*|_next).*)'],
-// };
-
 import NextAuth from "next-auth";
+import { authConfig } from "./app/authconfig";
+
+export default NextAuth(authConfig).auth;
 
 export const config = {
-    matcher: ['/'],
+    matcher: ['/((?!api|static|.*\\..*|_next).*)'],
 };
 
+// import NextAuth from "next-auth";
 
-const myMiddleware = (req, res, next) => {
-    // Your middleware logic here
-    console.log('Middleware executed');
+// export const config = {
+//     matcher: ['/'],
+// };
 
-};
 
-export default myMiddleware;
+// const myMiddleware = (req, res, next) => {
+//     // Your middleware logic here
+//     console.log('Middleware executed');
+
+// };
+
+// export default myMiddleware;

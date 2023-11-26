@@ -1,7 +1,7 @@
-const Homepage = () => {
-  return (
-    <div>Homepage</div>
-  )
-}
+import Dashboard from './dashboard/page';
 
-export default Homepage
+const Homepage = () => {
+  return <div>HomePage</div>;
+};
+
+export default Homepage;
